@@ -1,5 +1,5 @@
 import { Dashboard } from './Components/Dashboard';
-import { Header } from './Components/header';
+import { Header } from './Components/Header';
 import { GlobalStyle } from './styles/global';
 
 function App() {
