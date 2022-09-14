@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom";
 import { createServer } from 'miragejs';
 import App from './App';
 
@@ -19,14 +19,18 @@ createServer({
         }
       ]
     })
+
+    this.post('./transactions', (schema, request) => {
+      const data = JSON.parse(request.requestBody)
+
+      return data
+    })
   }
 })
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
