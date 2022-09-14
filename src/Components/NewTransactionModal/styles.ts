@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darken } from "polished";
+import { darken, transparentize } from "polished";
 
 import { IRadioBox } from "./index";
 
@@ -26,6 +26,10 @@ export const Container = styled.form`
 
     font-weight: 600;
     font-size: 1rem;
+
+    &::placeholder {
+      color: var(--text-body);
+    }
 
     & + input {
       margin-top: 1rem;
@@ -56,6 +60,9 @@ export const RadioBox = styled.button<IRadioBox>`
   height: 4rem;
   border: 1px solid #d7d7d7;
   border-radius: 0.25rem;
+
+  background: ${({ isActive, activeColor }) =>
+    isActive ? transparentize(0.9, colors[activeColor]) : "transparent"};
 
   display: flex;
   align-items: center;
